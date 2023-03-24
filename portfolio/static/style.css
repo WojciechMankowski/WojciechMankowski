@@ -118,3 +118,7 @@
 	color: var(--color);
 	font-size: 1.5rem;
 }
+.langues{
+	width: 100%;
+	flex: none;
+}

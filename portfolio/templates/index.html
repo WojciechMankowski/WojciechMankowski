@@ -1,152 +1,133 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pl">
+{% block content %}
+<div class="container">
+    <nav class="menu">
+        <ul>
+            <li><a href="#experience">Doświadczenie</a></li>
+            <li><a href="#projects">Moje projekty</a></li>
+        </ul>
+    </nav>
+    <div class="logo">
+        <div class="img_me rounded float-left img-fluid"><img src="{% static 'images/me.png' %}" alt=""></div>
+        <div class="contact">
+            <h2>Wojciech Mankowski</h2>
+            <p class="email"><i class="bi bi-envelope-fill"></i><a href="mailto:wojtekm510@gmail.com">
+                    wojtekm510@gmail.com</a></p>
+            <p class="github">
+                <i class="bi bi-github"></i>
+                <a href="https://github.com/WojciechMankowski" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
+            <p class="linkedin"><i class="bi bi-linkedin"></i>
+                <a href="https://www.linkedin.com/in/w-mankowski/" target="_blank"
+                    rel="noopener noreferrer">Lindeklin</a>
+            </p>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>Portfolio Wojciech Mankowski</title>
-</head>
-
-<body>
-    <div class="container">
-        <nav class="menu">
-            <ul>
-                <li><a href="#experience">Doświadczenie</a></li>
-                <li><a href="#projects">Moje projekty</a></li>
-            </ul>
-        </nav>
-        <div class="logo">
-            <div class="img_me rounded float-left img-fluid"><img src="{% static 'images/me.png' %}" alt=""></div>
-            <div class="contact">
-                <h2>Wojciech Mankowski</h2>
-                <p class="email"><i class="bi bi-envelope-fill"></i><a href="mailto:wojtekm510@gmail.com">
-                        wojtekm510@gmail.com</a></p>
-                <p class="github">
-                    <i class="bi bi-github"></i>
-                    <a href="https://github.com/WojciechMankowski" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </p>
-                <p class="linkedin"><i class="bi bi-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/w-mankowski/" target="_blank"
-                        rel="noopener noreferrer">Lindeklin</a>
-                </p>
-
-            </div>
         </div>
-        <main class="container_main">
-            <article class="main">
-                <div class="experience" id="experience">
-                    <h2>Doświadczenie zawodowe</h2>
-                    <p>
-                        <span class="copany_name">EXPERT Sp. z o.o. (04.2022 – )</span>
-                    <ul>
-                        <li class="todo">pisanie stron internetowych w Django i Wordpress</li>
-                        <li class="todo">wdrażanie stron internetowych na server</li>
-                        <li class="todo">przeprowadzanie wywiadów z klientami i zbieranie wymagań od klientów</li>
-                        <span class="tools_used"><span>Narzędzia: </span> Python, Django, sql, Wordpress</span>
-                    </ul>
-                    </p>
-                    <p>
-                        <span class="copany_name">Usługi Programistyczne Bartosz Myszka (04.2022-07.2022)</span>
-                    <ul>
-                        <li class="todo">tworzenie stron internetowych,</li>
-                        <li class="todo">manulne testowanie opragramowania</li>
-                        <span class="tools_used">
-                            <span>Narzędzia: </span> HTML, CSS, JavaScript</span>
-                    </ul>
-                    </p>
-                </div>
-                <div id="projects">
-                    <h2>Moje projekty:</h2>
-                    <div class="projects">
-                    <div>
+    </div>
+    <main class="container_main">
+        <article class="main">
+            <div class="experience" id="experience">
+                <h2>Doświadczenie zawodowe</h2>
+                <p>
+                    <span class="copany_name">EXPERT Sp. z o.o. (04.2022 – )</span>
+                <ul>
+                    <li class="todo">pisanie stron internetowych w Django i Wordpress</li>
+                    <li class="todo">wdrażanie stron internetowych na server</li>
+                    <li class="todo">przeprowadzanie wywiadów z klientami i zbieranie wymagań od klientów</li>
+                    <span class="tools_used"><span>Narzędzia: </span> Python, Django, sql, Wordpress</span>
+                </ul>
+                </p>
+                <p>
+                    <span class="copany_name">Usługi Programistyczne Bartosz Myszka (04.2022-07.2022)</span>
+                <ul>
+                    <li class="todo">tworzenie stron internetowych,</li>
+                    <li class="todo">manulne testowanie opragramowania</li>
+                    <span class="tools_used">
+                        <span>Narzędzia: </span> HTML, CSS, JavaScript</span>
+                </ul>
+                </p>
+            </div>
+            <div id="projects">
+                <h2>Moje projekty:</h2>
+                <div class="projects">
+                    <div class="langues">
                         {% for l in langues %}
-                        {{ l }}
+                        <button class="btn btn-info" id="langue">{{l}}</button>
                         {% endfor %}
                     </div>
-                        {% for project in projects%}
-                        <div class="project">
-                            <div class="languses">
-                                {%for language in project.programming_languages%}
-                                <span>{{language.name}}</span>
-                                {%endfor%}
-                            </div>
-                            <div class="title">
-                                <h3>{{project.name}}</h3>
-                            </div>
-                            <p>{{project.project_description}}</p>
+                    {% for project in projects%}
+                    <div class="project">
+                        <div class="languses">
+                            {%for language in project.programming_languages%}
+                            <span>{{language.name}}</span>
+                            {%endfor%}
                         </div>
-
-                        {%endfor%}
+                        <div class="title">
+                            <h3>{{project.name}}</h3>
+                        </div>
+                        <p>{{project.project_description}}</p>
                     </div>
+
+                    {%endfor%}
                 </div>
-            </article>
-            <article class="left">
-                <div class="profil">
+            </div>
+        </article>
+        <article class="left">
+            <div class="profil">
 
-                    <div class="me">
-                        <h2>Profil zawodowy</h2>
-                        <p>
-                            Jestem osobą wytrwałą i niebojącą się podejmowania wyzwań. Charakteryzuję się analitycznym
-                            umysłem oraz dostrzegania małych detali co powoduje szybsze znajdywania błędów. Dzięki
-                            sumienności, systematyczności wykonuję zadania jak najbardziej efektywnej za pomocą
-                            dostępnych
-                            zasobów. Jestem otwarty na nowe doświadczenia oraz na poznawanie nowych rzeczy. Posiadam
-                            orzeczenie o stopniu niepełnosprawności
-                        </p>
-                    </div>
-                    <div class="skills">
-                        <h2>Umiejętności</h2>
-                        <ul>
-                            <li class="skill">raportowanie błędów</li>
-                            <li class="skill">pisanie przypadków testowych</li>
-                            <li class="skill">testowanie przypadków testowych</li>
-                            <li class="skill">umiejętność pracy w zespole</li>
-
-                        </ul>
-                    </div>
-                    <div class="tools">
-                        <h2>Narzędzia</h2>
-                        <ul>
-                            <li class="tool">Python</li>
-                            <li class="tool">Python Fremory: Django, Flask</li>
-                            <li class="tool">JavaScript i React
-                            </li>
-                            <li class="tool">HTML5;</li>
-                            <li class="tool">CSS</li>
-                            <li class="tool">SQL</li>
-                            <li class="tool">Git</li>
-                            <li class="tool">Figma</li>
-                            <li class="tool">Scrum</li>
-                            <li class="tool">Jira and Jamboard</li>
-                            <li class="tool">Dev tool</li>
-                        </ul>
-                    </div>
-                    <div class="certificates">
-                        <h2>Certefikaty</h2>
-                        <ul>
-                            <li>Microsoft Office Specialist: Microsoft Word Expert 2019 (26.06.2022)</li>
-                            <li>Microsoft Office Specialist: Microsoft Excel Expert 2019 (23.07.2022)</li>
-                        </ul>
-                    </div>
+                <div class="me">
+                    <h2>Profil zawodowy</h2>
+                    <p>
+                        Jestem osobą wytrwałą i niebojącą się podejmowania wyzwań. Charakteryzuję się analitycznym
+                        umysłem oraz dostrzegania małych detali co powoduje szybsze znajdywania błędów. Dzięki
+                        sumienności, systematyczności wykonuję zadania jak najbardziej efektywnej za pomocą
+                        dostępnych
+                        zasobów. Jestem otwarty na nowe doświadczenia oraz na poznawanie nowych rzeczy. Posiadam
+                        orzeczenie o stopniu niepełnosprawności
+                    </p>
                 </div>
-            </article>
+                <div class="skills">
+                    <h2>Umiejętności</h2>
+                    <ul>
+                        <li class="skill">raportowanie błędów</li>
+                        <li class="skill">pisanie przypadków testowych</li>
+                        <li class="skill">testowanie przypadków testowych</li>
+                        <li class="skill">umiejętność pracy w zespole</li>
+
+                    </ul>
+                </div>
+                <div class="tools">
+                    <h2>Narzędzia</h2>
+                    <ul>
+                        <li class="tool">Python</li>
+                        <li class="tool">Python Fremory: Django, Flask</li>
+                        <li class="tool">JavaScript i React
+                        </li>
+                        <li class="tool">HTML5;</li>
+                        <li class="tool">CSS</li>
+                        <li class="tool">SQL</li>
+                        <li class="tool">Git</li>
+                        <li class="tool">Figma</li>
+                        <li class="tool">Scrum</li>
+                        <li class="tool">Jira and Jamboard</li>
+                        <li class="tool">Dev tool</li>
+                    </ul>
+                </div>
+                <div class="certificates">
+                    <h2>Certefikaty</h2>
+                    <ul>
+                        <li>Microsoft Office Specialist: Microsoft Word Expert 2019 (26.06.2022)</li>
+                        <li>Microsoft Office Specialist: Microsoft Excel Expert 2019 (23.07.2022)</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
 
 
 
 
 
-            <div></div>
-    </div>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+        <div></div>
+</div>
+{% endblock %}

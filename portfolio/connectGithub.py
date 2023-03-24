@@ -12,6 +12,7 @@ projects = []
 
 
 def getRepro(userName: str):
+    print(f'API :) {api_key}')
     git = Github(api_key)
     repos = git.get_user(userName)
     print(repos)

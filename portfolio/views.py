@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Project, ProgrammingLanguages
 from .projectClass import ProjectClass, ProgrammingLanguage
 from .updateData import delet_data
-from .connectGithub import save_langues_to_db
+from .connectGithub import save_langues_to_db, saveToDB
 def createLangue(langues):
     return ProgrammingLanguage(langues)
 
@@ -19,20 +19,13 @@ def home(request):
         )
         list_projects.append(project)
         langues_db = ProgrammingLanguages.objects.all()
-    return render(request, 'index.html', {'projects': list_projects, "langues": langues_db})
+    return render(request, 'index.html', {'projects': list_projects, 'langues': langues_db})
 
 
-def delet(request):
-    delet_data()
-    return render(request, 'delet.html')
 
-def update(request,name):
-    print(name)
-    project = Project.objects.get(name=name)
-    return render(request, 'update.html', {'project': project})
 
-def filter(request, langues):
-    projects = Project.objects.filter(programming_languages=langues)
+def filter(request, languages):
+    projects = Project.objects.raw(f"Select * FROM portfolio_project where programming_languages like '%{languages}%'")
     langues = [project.programming_languages for project in projects]
     langues = [l.split(" ") for l in langues]
     list_projects = []
@@ -43,6 +36,7 @@ def filter(request, langues):
             programming_languages=[createLangue(l) for l in langues[index]]
         )
         list_projects.append(project)
-        langues_db = ProgrammingLanguages.objects.all()
-    return render(request, 'index.html', {'projects': list_projects, "langues": langues_db})
+    print(list_projects)
+    langues_db = ProgrammingLanguages.objects.all()
+    return render(request, 'index.html', {'projects': list_projects, 'langues': langues_db})
 
