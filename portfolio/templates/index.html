@@ -64,6 +64,11 @@
                 <div id="projects">
                     <h2>Moje projekty:</h2>
                     <div class="projects">
+                    <div>
+                        {% for l in langues %}
+                        {{ l }}
+                        {% endfor %}
+                    </div>
                         {% for project in projects%}
                         <div class="project">
                             <div class="languses">

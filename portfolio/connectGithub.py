@@ -2,8 +2,8 @@ import datetime
 from github import Github
 from dotenv import load_dotenv
 from os import getenv
-from portfolio.models import Project
-from portfolio.projectClass import ProjectClass
+from portfolio.models import Project, ProgrammingLanguages
+from portfolio.projectClass import ProjectClass, ProgrammingLanguage
 from collections import defaultdict
 
 load_dotenv()
@@ -78,8 +78,11 @@ def saveToDB():
         )
         project.save()
 
+def save_langues_to_db(languages):
+    languages_model = ProgrammingLanguage(languages)
+    db_languages = ProgrammingLanguages(name=languages_model.name, slug=languages_model.slug)
+    db_languages.save()
+
 
 if __name__ == '__main__':
-    repros = getRepro("WojciechMankowski")
-    for repro in repros:
-        obj = createDescrption(repro)
+    save_langues_to_db()
