@@ -1,10 +1,13 @@
 from django.shortcuts import render
-from .models import Project, ProgrammingLanguages
+from .models import Project, ProgrammingLanguages, Skill
 from .projectClass import ProjectClass, ProgrammingLanguage
 from .updateData import delet_data
 from .connectGithub import save_langues_to_db, saveToDB
+
+
 def createLangue(langues):
     return ProgrammingLanguage(langues)
+
 
 def home(request):
     projects = Project.objects.all()
@@ -19,9 +22,8 @@ def home(request):
         )
         list_projects.append(project)
         langues_db = ProgrammingLanguages.objects.all()
-    return render(request, 'index.html', {'projects': list_projects, 'langues': langues_db})
-
-
+    skills = Skill.objects.all()
+    return render(request, 'index.html', {'projects': list_projects, 'langues': langues_db, 'skills': skills})
 
 
 def filter(request, languages):
@@ -39,4 +41,3 @@ def filter(request, languages):
     print(list_projects)
     langues_db = ProgrammingLanguages.objects.all()
     return render(request, 'index.html', {'projects': list_projects, 'langues': langues_db})
-
