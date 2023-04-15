@@ -1,5 +1,4 @@
 asgiref==3.6.0
-<<<<<<< HEAD
 certifi==2022.12.7
 cffi==1.15.1
 charset-normalizer==3.1.0
@@ -25,7 +24,6 @@ tzdata==2023.3
 urllib3==1.26.15
 whitenoise==6.4.0
 wrapt==1.15.0
-=======
 decouple==0.0.7
 dj-database-url==1.3.0
 Django==4.2
@@ -36,4 +34,3 @@ sqlparse==0.4.3
 typing_extensions==4.5.0
 tzdata==2023.3
 whitenoise==6.4.0
->>>>>>> 4192b4f847b639980c9c47dbd093f27300fed1d7

@@ -15,3 +15,4 @@ urlpatterns = [
     path('feed/', LatestPostsFeed(), name='post_feed'),
     path('search/', post_search, name='post_search'),
 ]
+# d1c5c69dd73b30412633e439b4a4f38311482d26
