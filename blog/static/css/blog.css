@@ -28,6 +28,10 @@
 .logo h2 {
   text-align: center;
 }
+.logo h2 a{
+    color: var(--background-color);
+    text-decoration: none;
+}
 .menu {
   margin: 25px auto;
   padding-top: 10px;
@@ -52,8 +56,8 @@
 
 #content {
   display: flex;
-  flex-direction: column;
-  width: 60%;
+  flex-direction: row;
+  width: 100%;
   padding: 0 30px;
   margin-bottom: 20px;
 }
@@ -61,19 +65,43 @@
 #sidebar {
   width: 100%;
   padding: 10px;
-  background: #efefef;
+  background: var(--background);
   padding: 6px 12px;
+  border-radius: 12px;
 }
-#sideber ul li{
-    list-style: none;
+#sidebar ul {
+  list-style: none;
+}
+#sidebar ul>li>a{
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+#sidebar h3{
+    padding: 12px 0;
+    color: #fff;
 }
 p.date {
-  color: #ccc;
+  color: var(--border);
   font-family: georgia, serif;
   font-size: 12px;
   font-style: italic;
 }
-
+.teaser {
+  padding: 6px 12px;
+  width: 25%;
+}
+.teaser a {
+  color: var(--cursor);
+  text-decoration: none;
+  cursor: pointer;
+}
+.entry {
+  width: 100%;
+}
+.commanders {
+  margin-top: 10px;
+}
 /* pagination */
 .pagination {
   margin: 40px 0;
