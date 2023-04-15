@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Project, ProgrammingLanguages, Skill
 from .projectClass import ProjectClass, ProgrammingLanguage
 from .updateData import delet_data
-from .connectGithub import save_langues_to_db, saveToDB
+# from .connectGithub import save_langues_to_db, saveToDB
 
 
 def createLangue(langues):
