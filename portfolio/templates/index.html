@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container">
+
+</div>
     <nav class="menu">
         <ul>
             <li><a href="#experience">Doświadczenie</a></li>
             <li><a href="#projects">Moje projekty</a></li>
         </ul>
     </nav>
+    
     <div class="logo">
         <div class="img_me rounded float-left img-fluid"><img src="{% static 'images/me.png' %}" alt=""></div>
         <div class="contact">
@@ -24,7 +26,10 @@
             </p>
 
         </div>
+      
+        
     </div>
+    <!-- <div class="waves "></div> -->
     <main class="container_main">
         <article class="main">
             <div class="experience" id="experience">
@@ -90,10 +95,10 @@
                 <div class="skills">
                     <h2>Umiejętności</h2>
                     <ul>
-                        <li class="skill">raportowanie błędów</li>
-                        <li class="skill">pisanie przypadków testowych</li>
-                        <li class="skill">testowanie przypadków testowych</li>
-                        <li class="skill">umiejętność pracy w zespole</li>
+                        {%for skill in skills %}
+                        <li class="skill">{{ skill.name }}</li>
+                        {% endfor %}
+
 
                     </ul>
                 </div>

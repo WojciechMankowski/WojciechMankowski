@@ -9,3 +9,4 @@ btns.forEach(btn =>
 		forwarding(slug)
 	})
 )
+
